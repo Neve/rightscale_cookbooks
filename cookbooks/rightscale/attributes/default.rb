@@ -28,3 +28,6 @@ default[:rightscale][:security_update] = "disable"
 
 # Cloud specific attributes
 #
+default[:rightscale][:rackspace_username] = ""
+default[:rightscale][:rackspace_api_key] = ""
+default[:rightscale][:rackspace_tenant_id] = ""

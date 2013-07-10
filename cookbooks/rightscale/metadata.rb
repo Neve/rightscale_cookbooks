@@ -52,7 +52,7 @@ recipe "rightscale::setup_security_updates",
 recipe "rightscale::setup_security_update_monitoring",
   "Sets up collectd plugin to monitor for available security updates."
  
-
+=begin
 attribute "rightscale/security_updates",
   :display_name => "Enable security updates",
   :description => "Unfreezes software repositories after booting and" +
@@ -259,7 +259,7 @@ attribute "rightscale/rackspace_tenant_id",
     "rightscale::default",
     "rightscale::setup_cloud"
   ]
-
+=end
 # RightScale ENV attributes.
 #
 # Maps each env:RS_* input a node[:rightscale][] equivalent.
