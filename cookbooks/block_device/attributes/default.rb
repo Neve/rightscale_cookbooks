@@ -38,3 +38,4 @@ default[:block_device][:first_server_uuid] = node[:rightscale][:instance_uuid]
 
 # Type of file system set up on ephemeral devices
 default[:block_device][:ephemeral][:file_system_type] = "xfs"
+default[:block_device][:ephemeral][:vg_data_percentage] = '100'

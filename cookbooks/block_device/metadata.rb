@@ -226,7 +226,7 @@ attribute "block_device/devices/default/backup/rackspace_snet",
   :choice => ["true", "false"],
   :default => "true",
   :recipes => ["block_device::default"] + backup_recipes + restore_recipes
-
+=begin
 attribute "block_device/ephemeral/vg_data_percentage",
   :display_name => "Percentage of the ephemeral LVM used for data",
   :description =>
@@ -254,7 +254,7 @@ attribute "block_device/ephemeral/file_system_type",
   :choice => ["xfs", "ext3"],
   :default => "xfs",
   :recipes => ["block_device::setup_ephemeral"]
-
+=end
 # Multiple Block Devices
 device_count = 2
 devices = 1.upto(device_count).map { |number| "device#{number}" }
