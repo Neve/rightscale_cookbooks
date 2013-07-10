@@ -7,7 +7,7 @@
 # such as a RightScale Master Subscription Agreement.
 
 rightscale_marker
-node[:sys_firewall][:enabled] = 'enabled'
+node.default[:sys_firewall][:enabled] = 'enabled'
 
 
 # Setting up Server to work with Rackconnect

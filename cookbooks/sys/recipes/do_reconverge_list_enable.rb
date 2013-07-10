@@ -10,11 +10,18 @@ rightscale_marker
 
 # Add re-converge task for all recipes provided in
 # the space-separated reconverge_list
-node[:sys][:reconverge_list] = ENV['sys_reconverge_list']
-node[:sys][:reconverge_interval] = ENV['sys_reconverge_interval']
+node.default[:sys][:reconverge_list] = ENV['sys_reconverge_list']
+node.default[:sys][:reconverge_interval] = ENV['sys_reconverge_interval']
 
-log "  !!!! DEBUG puts #{node[:sys][:reconverge_list]} "
-log "  !!!! DEBUG puts #{%x[export]} "
+log "  !!!! DEBUG #{node[:sys][:reconverge_list]} "
+
+
+ruby_block "DEBUG" do
+  block do
+    environment = %x[export]
+    Chef::Log.info "DEBUG #{environment}"
+  end
+end
 
 
 node[:sys][:reconverge_list].split(" ").each do |recipe|

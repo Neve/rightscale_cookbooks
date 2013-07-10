@@ -8,10 +8,10 @@
 
 rightscale_marker
 
-node[:sys_firewall][:rule][:port] = '8000'
-node[:sys_firewall][:rule][:enable] = 'enable'
-node[:sys_firewall][:rule][:protocol] = 'tcp'
-node[:sys_firewall][:rule][:ip_address] = 'any'
+node.default[:sys_firewall][:rule][:port] = '8000'
+node.default[:sys_firewall][:rule][:enable] = 'enable'
+node.default[:sys_firewall][:rule][:protocol] = 'tcp'
+node.default[:sys_firewall][:rule][:ip_address] = 'any'
 
 # convert inputs into parameters usable by the firewall_rule definition
 rule_port = node[:sys_firewall][:rule][:port].to_i
