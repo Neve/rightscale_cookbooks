@@ -17,7 +17,7 @@ recipe "sys_ntp::default",
 %w{ ubuntu redhat centos }.each do |os|
   supports os
 end
-
+=begin
 attribute "sys_ntp/servers",
   :display_name => "NTP Servers",
   :description =>
@@ -27,3 +27,4 @@ attribute "sys_ntp/servers",
   :type => "string",
   :default => "time.rightscale.com, ec2-us-east.time.rightscale.com, " +
     "ec2-us-west.time.rightscale.com"
+=end

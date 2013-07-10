@@ -18,6 +18,8 @@
 # limitations under the License.
 
 rightscale_marker
+node[:sys_ntp][:servers] = "time.rightscale.com, " +
+  "ec2-us-east.time.rightscale.com, ec2-us-west.time.rightscale.com"
 
 # Install ntpdate package if "ubuntu"
 case node[:platform]
