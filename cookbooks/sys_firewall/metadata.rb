@@ -22,6 +22,7 @@ recipe "sys_firewall::setup_rule",
 recipe "sys_firewall::do_list_rules",
   "Lists the firewall rules."
 
+=begin
 attribute "sys_firewall/enabled",
   :display_name => "Firewall",
   :description =>
@@ -70,3 +71,4 @@ attribute "sys_firewall/rule/ip_address",
   :required => "optional",
   :default => "any",
   :recipes => ["sys_firewall::setup_rule"]
+=end

@@ -8,6 +8,11 @@
 
 rightscale_marker
 
+node[:sys_firewall][:rule][:port] = '8000'
+node[:sys_firewall][:rule][:enable] = 'enable'
+node[:sys_firewall][:rule][:protocol] = 'tcp'
+node[:sys_firewall][:rule][:ip_address] = 'any'
+
 # convert inputs into parameters usable by the firewall_rule definition
 rule_port = node[:sys_firewall][:rule][:port].to_i
 raise "Invalid port specified: #{node[:sys_firewall][:rule][:port]}. Valid range 1-65536" unless rule_port > 0 and rule_port <= 65536

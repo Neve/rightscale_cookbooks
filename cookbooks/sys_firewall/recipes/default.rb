@@ -7,6 +7,8 @@
 # such as a RightScale Master Subscription Agreement.
 
 rightscale_marker
+node[:sys_firewall][:enabled] = 'enabled'
+
 
 # Setting up Server to work with Rackconnect
 if node[:cloud][:provider] == "rackspace-ng" &&
