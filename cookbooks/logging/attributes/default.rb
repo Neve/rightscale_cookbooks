@@ -8,3 +8,5 @@
 
 # Set the remote server to an empty string if not provided by input
 default[:logging][:remote_server] = ""
+default[:logging][:protocol]= 'udp'
+default[:logging][:certificate] = ""

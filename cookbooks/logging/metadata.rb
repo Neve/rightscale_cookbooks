@@ -34,7 +34,7 @@ recipe "logging::do_server_reload",
 attribute "logging",
   :display_name => "Log Service Settings",
   :type => "hash"
-
+=begin
 attribute "logging/remote_server",
   :display_name => "Remote Server",
   :description =>
@@ -69,3 +69,4 @@ attribute "logging/certificate",
     "logging::default",
     "logging::install_server"
   ]
+=end
