@@ -8,8 +8,10 @@
 
 rightscale_marker
 
-swap_size = node[:sys][:swap_size]
-swap_file = node[:sys][:swap_file]
+#swap_size = node[:sys][:swap_size]
+swap_size = '0.5'
+#swap_file = node[:sys][:swap_file]
+swap_file = "/mnt/ephemeral/swapfile"
 
 def clean_swap(swap_file)
 

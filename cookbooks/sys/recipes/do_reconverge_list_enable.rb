@@ -10,6 +10,13 @@ rightscale_marker
 
 # Add re-converge task for all recipes provided in
 # the space-separated reconverge_list
+node[:sys][:reconverge_list] = ENV['sys_reconverge_list']
+node[:sys][:reconverge_interval] = ENV['sys_reconverge_interval']
+
+log "  !!!! DEBUG puts #{node[:sys][:reconverge_list]} "
+log "  !!!! DEBUG puts #{%x[export]} "
+
+
 node[:sys][:reconverge_list].split(" ").each do |recipe|
 
   log "  Adding re-converge task for #{recipe}"

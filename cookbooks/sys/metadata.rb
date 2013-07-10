@@ -20,7 +20,7 @@ recipe "sys::do_reconverge_list_disable",
 
 recipe "sys::setup_swap",
   "Installs swap space."
-
+=begin
 attribute "sys/reconverge_list",
   :display_name => "Reconverge List",
   :description =>
@@ -66,3 +66,4 @@ attribute "sys/swap_file",
   :recipes => [
     "sys::setup_swap"
   ]
+=end
