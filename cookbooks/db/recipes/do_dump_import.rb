@@ -11,7 +11,7 @@ rightscale_marker
 class Chef::Resource::RubyBlock
   include RightScale::Database::Helper
 end
-
+=begin
 # Check for valid prefix / dump filename
 dump_file_regex = '(^\w+)(-\d{1,12})*$'
 raise "Prefix: #{node[:db][:dump][:prefix]} invalid.  It is restricted to word characters (letter, number, underscore) and an optional partial timestamp -YYYYMMDDHHMM.  (=~/#{dump_file_regex}/ is the ruby regex used). ex: myapp_prod_dump, myapp_prod_dump-201203080035 or myapp_prod_dump-201203" unless node[:db][:dump][:prefix] =~ /#{dump_file_regex}/ || node[:db][:dump][:prefix] == ""
@@ -61,6 +61,14 @@ else
     creates dumpfilepath_without_extension
     environment environment_variables
   end
+=end
+db_name = node[:db][:dump][:database_name]
+prefix = 'app_test'
+dumpfilepath_without_extension = '/tmp/' + prefix
+cookbook_file dumpfilepath_without_extension do
+  source "#{prefix}.zip"
+  cookbook 'db_mysql'
+end
 
   # Restore the dump file to db
   # See cookbooks/db_<provider>/providers/default.rb for the
@@ -79,4 +87,4 @@ else
     end
   end
 
-end
+#end
