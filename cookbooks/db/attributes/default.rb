@@ -7,22 +7,33 @@
 # such as a RightScale Master Subscription Agreement.
 
 # Default setting for DB FQDN
-default[:db][:dns][:master][:fqdn] = "localhost"
 
+default[:db][:dns][:master][:fqdn] = "localhost"
+default[:db][:dns][:master][:id] = 'UNBF2GER83A'
+default[:db][:dns][:slave][:fqdn] = "slave-#{node[:db][:dns][:master][:fqdn]}"
+default[:db][:dns][:slave][:id] = "#{node[:db][:dns][:master][:id]}:#{node[:db][:dns][:slave][:fqdn]}"
 # Initial settings for client operations on application servers
 default[:db][:data_dir] = "/mnt/storage"
 
 # Default settings for database administrator user and password
-default[:db][:admin][:user] = "root"
-default[:db][:admin][:password] = ""
+default[:db][:admin][:user] = "admin"
+default[:db][:admin][:password] = 'qwaszx'
 
 # Default settings for database replication user and password
-default[:db][:replication][:user] = nil
-default[:db][:replication][:password] = nil
+default[:db][:replication][:user] = 'rep_user'
+default[:db][:replication][:password] = 'qwaszx'
+
 
 # Default settings for backup lineage
-default[:db][:backup][:lineage] = ""
+default[:db][:backup][:lineage] = "rsvm-db2-backup"
 default[:db][:backup][:lineage_override] = ""
+default[:db][:backup][:timestamp_override ]= ''
+default[:db][:backup][:primary][:master][:cron][:hour] = ''
+default[:db][:backup][:primary][:slave][:cron][:hour] = ''
+default[:db][:backup][:primary][:master][:cron][:minute] = ''
+default[:db][:backup][:primary][:slave][:cron][:minute] = ''
+
+
 
 # TTL limit to verify Master DB DNS TTL
 default[:db][:dns][:ttl] = "60"
@@ -66,3 +77,16 @@ default[:db][:backup][:primary][:slave][:cron][:minute] = cron_min + 30
 # DB manager type specific commands array for db_sys_info.log file
 default[:db][:info_file_options] = []
 default[:db][:info_file_location] = "/etc"
+
+default[:db][:replication][:network_interface] = 'private'
+
+default[:db][:application][:user] = 'app_user'
+default[:db][:application][:password] = 'qwaszx'
+
+default[:db][:init_slave_at_boot] = 'false'
+default[:db][:force_promote] = 'false'
+default[:db][:force_safety] = 'off'
+default[:db][:terminate_safety] = 'off'
+
+default[:db][:provider_type]"db_mysql_5.5"
+default[:db][:dump][:database_name] = 'app_test' #TODO changevto app db name

@@ -206,7 +206,7 @@ attribute "db/dns/master/id",
     "db::do_init_and_become_master",
     "db::do_promote_to_master"
   ]
-
+=begin
 attribute "db/dns/slave/fqdn",
   :display_name => "Database Slave FQDN",
   :description =>
@@ -227,7 +227,8 @@ attribute "db/dns/slave/id",
     " a 7-digit number is used (e.g., 4403234). Example:4403234",
   :required => "required",
   :recipes => ["db::do_set_dns_slave"]
-
+=end
+=begin
 attribute "db/admin/user",
   :display_name => "Database Admin Username",
   :description =>
@@ -291,7 +292,8 @@ attribute "db/replication/password",
     "db::do_secondary_init_slave",
     "db::do_init_slave_at_boot"
   ]
-
+=end
+=begin
 attribute "db/replication/network_interface",
   :display_name => "Database Replication Network Interface",
   :description =>
@@ -309,7 +311,8 @@ attribute "db/replication/network_interface",
     "db::request_master_deny",
     "db::do_set_dns_slave"
   ]
-
+=end
+=begin
 attribute "db/application/user",
   :display_name => "Database Application Username",
   :description =>
@@ -341,7 +344,8 @@ attribute "db/application/password",
     "db::do_secondary_restore",
     "db::do_secondary_restore_and_become_master"
   ]
-
+=end
+=begin
 attribute "db/init_slave_at_boot",
   :display_name => "Init Slave at Boot",
   :description =>
@@ -375,9 +379,10 @@ attribute "db/provider_type",
   :required => "required",
   :choice => ["db_mysql_5.1", "db_mysql_5.5", "db_postgres_9.1"],
   :recipes => ["db::default"]
-
+ =end
 # == Backup/Restore
 #
+=begin
 attribute "db/backup/lineage",
   :display_name => "Database Backup Lineage",
   :description =>
@@ -496,7 +501,7 @@ attribute "db/backup/primary/slave/cron/minute",
     " Example 30",
   :required => "optional",
   :recipes => ["db::do_primary_backup_schedule_enable"]
-
+=end
 
 # == Import/export attributes
 #
@@ -504,7 +509,7 @@ attribute "db/backup/primary/slave/cron/minute",
 attribute "db/dump",
   :display_name => "Import/export settings for database dump file management.",
   :type => "hash"
-
+=begin
 attribute "db/dump/storage_account_provider",
   :display_name => "Dump Storage Account Provider",
   :description =>
@@ -616,7 +621,8 @@ attribute "db/dump/database_name",
     "db::do_dump_export",
     "db::do_dump_schedule_enable"
   ]
-
+=end
+=begin
 attribute "db/terminate_safety",
   :display_name => "Terminate Safety",
   :description =>
@@ -657,3 +663,4 @@ attribute "db/force_promote",
   :default => "false",
   :choice => ["true", "false"],
   :recipes => ["db::do_promote_to_master"]
+=end
