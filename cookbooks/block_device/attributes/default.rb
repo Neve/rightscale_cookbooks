@@ -38,8 +38,8 @@ default[:block_device][:devices_to_use] = 'device1'
 # Defining initial backup parameters for all block devices
 RightScale::BlockDeviceHelper.do_for_all_block_devices block_device do |device, number|
   # Backup every hour on a randomly calculated minute
-  default[:block_device][:devices][device][:stripe_count] = 1
-  default[:block_device][:devices][device][:volume_size] = 10
+  default[:block_device][:devices][device][:stripe_count] = '1'
+  default[:block_device][:devices][device][:volume_size] = '10'
   default[:block_device][:devices][device][:backup][:lineage] = 'rsvm-db2.backup'
 
   default[:block_device][:devices][device][:backup][:timestamp_override] = ''
@@ -61,8 +61,8 @@ RightScale::BlockDeviceHelper.do_for_all_block_devices block_device do |device, 
 end
 
 
-default[:block_device][:devices][:device1][:stripe_count] = 1
-default[:block_device][:devices][:device1][:volume_size] = 10
+default[:block_device][:devices][:device1][:stripe_count] = '1'
+default[:block_device][:devices][:device1][:volume_size] = '10'
 default[:block_device][:devices][:device1][:backup][:lineage] = 'rsvm-db2.backup'
 
 default[:block_device][:devices][:device1][:backup][:timestamp_override] = ''

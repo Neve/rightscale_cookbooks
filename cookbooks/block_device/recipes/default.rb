@@ -55,8 +55,8 @@ end
 # See cookbooks/block_device/libraries/block_device.rb for the definition of
 # "do_for_all_block_devices" and "get_device_or_default" methods.
 #
-node[:block_device][:devices][:device1][:stripe_count] = 1
-node[:block_device][:devices][:device1][:volume_size] = 10
+node[:block_device][:devices][:device1][:stripe_count] = '1'
+node[:block_device][:devices][:device1][:volume_size] = '10'
 node[:block_device][:devices][:device1][:backup][:lineage] = 'rsvm-db2.backup'
 
 node[:block_device][:devices][:device1][:backup][:timestamp_override] = ''
