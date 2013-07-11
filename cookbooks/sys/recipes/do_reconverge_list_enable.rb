@@ -9,23 +9,7 @@
 rightscale_marker
 
 include_recipe 'sys::vars_db_master'
-#node.default[:sys][:reconverge_list] = 'rightscale::setup_security_updates'
-#node.default[:sys][:reconverge_interval] = '15'
-=begin
-opt_file = '/var/cache/rightscale/inst_opts'
 
-if File.exists?(opt_file)
-   File.readlines(opt_file).each do |line|
-     if line.include?('sys_reconverge_list')
-       val=line.split("=")
-       node[:sys][:reconverge_list] = val[1]
-     end
-   end
- end
-=end
-
-#node[:sys][:reconverge_list] = RightScale::System::Helper.load_vars('sys_reconverge_list')
-#node[:sys][:reconverge_interval] = RightScale::System::Helper.load_vars('sys_reconverge_interval')
 log "  !!! DEBUG  #{node[:sys][:reconverge_list]}"
 log "  !!! DEBUG #{node[:sys][:reconverge_interval]} "
 

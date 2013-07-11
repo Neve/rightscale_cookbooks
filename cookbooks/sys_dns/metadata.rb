@@ -65,7 +65,7 @@ attribute "sys_dns/password",
     " Example: cred:CLOUD_ACCOUNT_KEY ",
   :required => "required",
   :recipes => ["sys_dns::do_set_private", "sys_dns::default"]
-
+=begin
 attribute "sys_dns/region",
   :display_name => "Cloud DNS region",
   :description =>
@@ -74,3 +74,4 @@ attribute "sys_dns/region",
   :required => "optional",
   :choice => ["Chicago", "Dallas", "London"],
   :recipes => ["sys_dns::do_set_private", "sys_dns::default"]
+=end

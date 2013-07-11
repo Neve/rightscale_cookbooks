@@ -78,22 +78,6 @@
       ],
       "calculated": false,
       "type": "string"
-    },
-    "sys_dns/region": {
-      "display_name": "Cloud DNS region",
-      "description": "You must specify the region when using CloudDNS. Example: Chicago",
-      "required": "optional",
-      "choice": [
-        "Chicago",
-        "Dallas",
-        "London"
-      ],
-      "recipes": [
-        "sys_dns::do_set_private",
-        "sys_dns::default"
-      ],
-      "calculated": false,
-      "type": "string"
     }
   },
   "groupings": {
