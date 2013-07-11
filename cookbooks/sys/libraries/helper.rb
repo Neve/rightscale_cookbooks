@@ -95,6 +95,39 @@ module RightScale
         reload_command.error!
         Chef::Log.info reload_command.stdout
       end
+
+      def self.load_vars(variable)
+        opt_file = '/var/cache/rightscale/inst_opts'
+        if File.exists?(opt_file)
+=begin
+          f = File.new(opt_file)
+          f.each do |line|
+            Chef::Log.info "  HEPLER DEBUG #{line}"
+            if line.include?(variable)
+              val=line.split("=")
+              return val[1]
+            else
+#              return 'missing_in_inst_opts'
+            end
+          end
+          f.close
+=end
+          File.readlines(opt_file).each do |line|
+             Chef::Log.info "  HEPLER DEBUG #{line}"
+             if line.include?(variable)
+               val=line.split("=")
+               return val[1]
+             else
+#               return 'missing_in_inst_opts'
+             end
+          end
+
+        else
+          return 'missing_inst_opts_file'
+        end
+
+      end
+
     end
   end
 end

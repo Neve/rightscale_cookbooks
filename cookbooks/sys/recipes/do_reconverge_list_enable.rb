@@ -8,20 +8,29 @@
 
 rightscale_marker
 
+node.default[:sys][:reconverge_list] = 'rightscale::setup_security_updates'
+node.default[:sys][:reconverge_interval] = '15'
+=begin
+opt_file = '/var/cache/rightscale/inst_opts'
+
+if File.exists?(opt_file)
+   File.readlines(opt_file).each do |line|
+     if line.include?('sys_reconverge_list')
+       val=line.split("=")
+       node[:sys][:reconverge_list] = val[1]
+     end
+   end
+ end
+=end
+
+node[:sys][:reconverge_list] = RightScale::System::Helper.load_vars('sys_reconverge_list')
+node[:sys][:reconverge_interval] = RightScale::System::Helper.load_vars('sys_reconverge_interval')
+log "  !!! DEBUG  #{node[:sys][:reconverge_list]}"
+log "  !!! DEBUG #{node[:sys][:reconverge_interval]} "
+
+
 # Add re-converge task for all recipes provided in
 # the space-separated reconverge_list
-node.default[:sys][:reconverge_list] = ENV['sys_reconverge_list'] || 'rightscale::setup_security_updates'
-node.default[:sys][:reconverge_interval] = ENV['sys_reconverge_interval'] || '15'
-
-log "  !!!! DEBUG #{node[:sys][:reconverge_list]} "
-
-
-ruby_block "DEBUG" do
-  block do
-    environment = %x[export]
-    Chef::Log.info "DEBUG #{environment}"
-  end
-end
 
 
 node[:sys][:reconverge_list].split(" ").each do |recipe|

@@ -33,6 +33,7 @@ action :update do
   log msg
 
   # Update rules
+  node.default[:sys_firewall][:enabled] = "enabled"
   unless node[:sys_firewall][:enabled] == "enabled"
     log "Firewall not enabled. Not adding rule for #{port}."
   else
