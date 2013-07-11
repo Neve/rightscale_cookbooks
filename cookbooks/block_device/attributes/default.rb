@@ -61,6 +61,26 @@ RightScale::BlockDeviceHelper.do_for_all_block_devices block_device do |device, 
 end
 
 
+default[:block_device][:devices][:device1][:stripe_count] = 1
+default[:block_device][:devices][:device1][:volume_size] = 10
+default[:block_device][:devices][:device1][:backup][:lineage] = 'rsvm-db2.backup'
+
+default[:block_device][:devices][:device1][:backup][:timestamp_override] = ''
+default[:block_device][:devices][:device1][:backup][:lineage_override] = ''
+default[:block_device][:devices][:device1][:backup][:primary][:keep][:max_snapshots] = '60'
+default[:block_device][:devices][:device1][:backup][:primary][:keep][:daily] = '14'
+default[:block_device][:devices][:device1][:backup][:primary][:keep][:weekly] = '6'
+default[:block_device][:devices][:device1][:backup][:primary][:keep][:monthly] = '12'
+default[:block_device][:devices][:device1][:backup][:primary][:keep][:yearly] = '2'
+default[:block_device][:devices][:device1][:backup][:secondary][:container] = 'rsvm-db2.backup'
+default[:block_device][:devices][:device1][:iops] = ''
+default[:block_device][:devices][:device1][:volume_type] = "SATA"
+default[:block_device][:devices][:device1][:backup][:primary][:cron][:hour] = "*" # Every hour
+default[:block_device][:devices][:device1][:backup][:primary][:cron][:minute] = "#{5+rand(50)}"
+
+default[:block_device][:devices][:device1][:mount_point] = "/mnt/storage1"
+default[:block_device][:devices][:device1][:vg_data_percentage] = "90"
+default[:block_device][:devices][:device1][:nickname] = "data_storage1"
 
 
 # block_device/first_server_uuid will be used to generate unique block device nicknames

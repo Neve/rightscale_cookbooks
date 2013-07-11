@@ -55,6 +55,29 @@ end
 # See cookbooks/block_device/libraries/block_device.rb for the definition of
 # "do_for_all_block_devices" and "get_device_or_default" methods.
 #
+node[:block_device][:devices][:device1][:stripe_count] = 1
+node[:block_device][:devices][:device1][:volume_size] = 10
+node[:block_device][:devices][:device1][:backup][:lineage] = 'rsvm-db2.backup'
+
+node[:block_device][:devices][:device1][:backup][:timestamp_override] = ''
+node[:block_device][:devices][:device1][:backup][:lineage_override] = ''
+node[:block_device][:devices][:device1][:backup][:primary][:keep][:max_snapshots] = '60'
+node[:block_device][:devices][:device1][:backup][:primary][:keep][:daily] = '14'
+node[:block_device][:devices][:device1][:backup][:primary][:keep][:weekly] = '6'
+node[:block_device][:devices][:device1][:backup][:primary][:keep][:monthly] = '12'
+node[:block_device][:devices][:device1][:backup][:primary][:keep][:yearly] = '2'
+node[:block_device][:devices][:device1][:backup][:secondary][:container] = 'rsvm-db2.backup'
+node[:block_device][:devices][:device1][:iops] = ''
+node[:block_device][:devices][:device1][:volume_type] = "SATA"
+node[:block_device][:devices][:device1][:backup][:primary][:cron][:hour] = "*" # Every hour
+node[:block_device][:devices][:device1][:backup][:primary][:cron][:minute] = "#{5+rand(50)}"
+
+node[:block_device][:devices][:device1][:mount_point] = "/mnt/storage1"
+node[:block_device][:devices][:device1][:vg_data_percentage] = "90"
+node[:block_device][:devices][:device1][:nickname] = "data_storage1"
+
+
+
 do_for_all_block_devices node[:block_device] do |device|
   block_device get_device_or_default(node, device, :nickname) do
     cloud node[:cloud][:provider]
