@@ -10,8 +10,8 @@ rightscale_marker
 
 # Add re-converge task for all recipes provided in
 # the space-separated reconverge_list
-node.default[:sys][:reconverge_list] = ENV['sys_reconverge_list']
-node.default[:sys][:reconverge_interval] = ENV['sys_reconverge_interval']
+node.default[:sys][:reconverge_list] = ENV['sys_reconverge_list'] || 'rightscale::setup_security_updates'
+node.default[:sys][:reconverge_interval] = ENV['sys_reconverge_interval'] || '15'
 
 log "  !!!! DEBUG #{node[:sys][:reconverge_list]} "
 
