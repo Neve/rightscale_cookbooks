@@ -27,6 +27,8 @@ attribute "db_mysql",
 
 # == Default server attributes
 #
+
+=begin
 attribute "db_mysql/server_usage",
   :display_name => "Server Usage",
   :description =>
@@ -195,3 +197,4 @@ attribute "db_mysql/ssl/slave_key",
     "db_mysql::setup_server_5_1",
     "db_mysql::setup_server_5_5"
   ]
+=end
