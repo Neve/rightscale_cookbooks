@@ -27,7 +27,8 @@
   "recipes": {
     "sys::do_reconverge_list_enable": "Enables the periodic execution (every 15 minutes) of recipes specified in the 'Reconverge List' input.",
     "sys::do_reconverge_list_disable": "Disables recipe reconverge list.",
-    "sys::setup_swap": "Installs swap space."
+    "sys::setup_swap": "Installs swap space.",
+    "sys::vars_db_master": "Setup vars for db master template."
   },
   "version": "13.4.0"
 }
