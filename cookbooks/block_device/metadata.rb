@@ -132,7 +132,7 @@ attribute "block_device/devices/default/backup/primary/cred/secret",
   :required => "recommended",
   :default => "",
   :recipes => ["block_device::default"]
-
+=begin
 attribute "block_device/devices/default/backup/primary/cloud",
   :display_name => "Primary Backup Storage Cloud (default)",
   :description =>
@@ -154,7 +154,8 @@ attribute "block_device/devices/default/backup/primary/endpoint",
   :required => "optional",
   :default => "",
   :recipes => ["block_device::default"]
-
+=end
+=begin
 attribute "block_device/devices/default/backup/secondary/cred/user",
   :display_name => "Secondary Backup User (default)",
   :description =>
@@ -200,7 +201,8 @@ attribute "block_device/devices/default/backup/secondary/cloud",
     "block_device::do_secondary_backup",
     "block_device::do_secondary_restore"
   ]
-
+=end
+=begin
 attribute "block_device/devices/default/backup/secondary/endpoint",
   :display_name => "Secondary Backup Storage Cloud Endpoint URL (default)",
   :description =>
@@ -214,7 +216,8 @@ attribute "block_device/devices/default/backup/secondary/endpoint",
     "block_device::do_secondary_backup",
     "block_device::do_secondary_restore"
   ]
-
+=end
+=begin
 attribute "block_device/devices/default/backup/rackspace_snet",
   :display_name => "Rackspace SNET Enabled for Backup",
   :description =>
@@ -226,6 +229,7 @@ attribute "block_device/devices/default/backup/rackspace_snet",
   :choice => ["true", "false"],
   :default => "true",
   :recipes => ["block_device::default"] + backup_recipes + restore_recipes
+=end
 =begin
 attribute "block_device/ephemeral/vg_data_percentage",
   :display_name => "Percentage of the ephemeral LVM used for data",
@@ -267,7 +271,7 @@ end.each do |device, number|
     :title => "Block Device #{number}",
     :description =>
       "Attributes for the block device: #{device}."
-
+=begin
   attribute "block_device/devices/#{device}/stripe_count",
     :display_name => "Number of Volumes in the Stripe (#{number})",
     :description =>
@@ -280,7 +284,8 @@ end.each do |device, number|
     :required => device != 'device2' ? 'recommended' : 'optional',
     :default => "1",
     :recipes => ["block_device::setup_block_device", "block_device::default"]
-
+=end
+=begin
   attribute "block_device/devices/#{device}/volume_size",
     :display_name => "Total Volume Size (#{number})",
     :description =>
@@ -293,7 +298,8 @@ end.each do |device, number|
     :required => device != 'device2' ? 'recommended' : 'optional',
     :default => "10",
     :recipes => ["block_device::setup_block_device", "block_device::default"]
-
+=end
+=begin
   attribute "block_device/devices/#{device}/backup/lineage",
     :display_name => "Backup Lineage (#{number})",
     :description =>
@@ -309,7 +315,8 @@ end.each do |device, number|
       " one will automatically be created. Example: prod_db_lineage ",
     :required => device != 'device2' ? 'required' : 'optional',
     :recipes => backup_recipes + restore_recipes
-
+=end
+=begin
   attribute "block_device/devices/#{device}/nickname",
     :display_name => "Nickname (#{number})",
     :description =>
@@ -318,7 +325,8 @@ end.each do |device, number|
     :required => device != 'device2' ? 'recommended' : 'optional',
     :default => "data_storage#{number}",
     :recipes => ["block_device::default"]
-
+=end
+=begin
   attribute "block_device/devices/#{device}/backup/lineage_override",
     :display_name => "Backup Lineage Override",
     :description =>
@@ -346,7 +354,8 @@ end.each do |device, number|
     :required => "optional",
     :default => "",
     :recipes => restore_recipes
-
+=end
+=begin
   attribute "block_device/devices/#{device}/backup/primary/cron/minute",
     :display_name => "Backup Cron Minute (#{number})",
     :description =>
@@ -365,7 +374,8 @@ end.each do |device, number|
     :required => "optional",
     :default => "",
     :recipes => ["block_device::do_primary_backup_schedule_enable"]
-
+=end
+=begin
   attribute "block_device/devices/#{device}/backup/primary/keep/max_snapshots",
     :display_name => "Backup Max Snapshots (#{number})",
     :description =>
@@ -410,7 +420,8 @@ end.each do |device, number|
     :required => "optional",
     :default => "2",
     :recipes => backup_recipes + ["block_device::default"]
-
+=end
+=begin
   attribute "block_device/devices/#{device}/backup/secondary/container",
     :display_name => "Secondary Backup Storage Container (#{number})",
     :description =>
@@ -452,7 +463,8 @@ end.each do |device, number|
     :choice => ["50", "60", "70", "80", "90", "100"],
     :default => "90",
     :recipes => ["block_device::setup_block_device", "block_device::default"]
-
+=end
+=begin
   attribute "block_device/devices/#{device}/iops",
     :display_name => "I/O Operations per Second (#{number})",
     :description =>
@@ -473,8 +485,9 @@ end.each do |device, number|
     :choice => ["SATA", "SSD"],
     :default => "SATA",
     :recipes => ["block_device::setup_block_device", "block_device::default"]
+=end
 end
-
+=begin
 attribute "block_device/terminate_safety",
   :display_name => "Terminate Safety",
   :description =>
@@ -502,3 +515,4 @@ attribute "block_device/force_safety",
   :default =>
     "Override the dropdown and set to \"off\" to really run this recipe",
   :recipes => ["block_device::do_force_reset"]
+=end
