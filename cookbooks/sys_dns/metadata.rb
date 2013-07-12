@@ -16,7 +16,7 @@ recipe "sys_dns::default",
 
 recipe "sys_dns::do_set_private",
   "Sets the dynamic DNS entry to the first private IP of the server."
-
+=begin
 attribute "sys_dns/choice",
   :display_name => "DNS Service Provider",
   :description =>
@@ -65,6 +65,7 @@ attribute "sys_dns/password",
     " Example: cred:CLOUD_ACCOUNT_KEY ",
   :required => "required",
   :recipes => ["sys_dns::do_set_private", "sys_dns::default"]
+=end
 =begin
 attribute "sys_dns/region",
   :display_name => "Cloud DNS region",

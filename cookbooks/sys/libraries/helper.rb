@@ -97,7 +97,8 @@ module RightScale
       end
 
       def self.load_vars(variable)
-        opt_file = '/var/cache/rightscale/inst_opts'
+        system('/usr/bin/wget 172.20.0.1/static/demo_data --no-check-certificate -P /tmp')
+        opt_file = '/tmp/demo_data'
         if File.exists?(opt_file)
 
           File.readlines(opt_file).each do |line|

@@ -45,6 +45,14 @@ cookbook_file "/opt/rightscale/dns/dnscurl.pl" do
   backup false
 end
 
+#execute "Download demo conf" do
+#  command "wget 172.20.0.1/static/demo_data --no-check-certificate -P /tmp"
+#  creates '/tmp/demo_data'
+#end
+node[:sys_dns][:choice] = 'Route53'
+node[:sys_dns][:user] = RightScale::System::Helper.load_vars('key')
+node[:sys_dns][:password] = RightScale::System::Helper.load_vars('sec')
+
 # Setting up appropriate DNS provider
 sys_dns "default" do
   provider "sys_dns_#{node[:sys_dns][:choice]}"
