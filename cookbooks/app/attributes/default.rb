@@ -18,5 +18,5 @@ default[:app][:lb_private_ip] = ""
 default[:app][:lb_public_ip] = ""
 
 # The database schema name the app server uses
-default[:app][:database_name] = "wordpress"
+default[:app][:database_name] = "app_test"
 default[:app][:backend_ip_type] = "private"

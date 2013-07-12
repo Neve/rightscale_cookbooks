@@ -14,7 +14,7 @@ rightscale_marker
 # Include apache2 recipe for correct node values and providers initialization
 # in operational mode
 include_recipe "apache2"
-include_recipe 'rightscale::vars_app_wordpress'
+include_recipe 'rightscale::vars_app_wp'
 
 log "  Configuring vhost file for App server"
 # See cookbooks/app_<providers>/providers/default.rb for the "setup_vhost" action.
