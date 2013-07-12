@@ -72,6 +72,38 @@ action :install do
 
 end
 
+=begin
+# Setup apache PHP virtual host
+action :setup_vhost do
+
+  project_root = new_resource.destination
+  php_port = new_resource.port
+
+  # Disable default vhost
+  # See https://github.com/rightscale/cookbooks/blob/master/apache2/definitions/apache_site.rb for the "apache_site" definition.
+  apache_site "000-default" do
+    enable false
+  end
+
+  # Adds php port to list of ports for webserver to listen on
+  # See cookbooks/app/definitions/app_add_listen_port.rb for the "app_add_listen_port" definition.
+  app_add_listen_port php_port
+
+  # Configure apache vhost for PHP
+  # See https://github.com/rightscale/cookbooks/blob/master/apache2/definitions/web_app.rb for the "web_app" definition.
+  web_app node[:web_apache][:application_name] do
+    template "app_server.erb"
+    docroot project_root
+    vhost_port php_port.to_s
+    server_name node[:web_apache][:server_name]
+    allow_override node[:web_apache][:allow_override]
+    cookbook "app_php"
+  end
+
+end
+=end
+#########################################
+#########################################
 
 # Setup apache PHP virtual host
 action :setup_vhost do
@@ -102,7 +134,44 @@ action :setup_vhost do
 
 end
 
+# Setup PHP Database Connection
+action :setup_db_connection do
+  require 'net/http'
+  require 'uri'
 
+  project_root = new_resource.destination
+  db_name = new_resource.database_name
+  # Make sure config dir exists
+  directory ::File.join(project_root, "config") do
+    recursive true
+    owner node[:app][:user]
+    group node[:app][:group]
+  end
+
+  url = URI.parse('http://api.wordpress.org/secret-key/1.1/')
+  req = Net::HTTP::Get.new(url.path)
+  res = Net::HTTP.start(url.host, url.port) { |http|
+    http.request(req)
+  }
+
+  # Tells selected db_adapter to fill in it's specific connection template
+  # See cookbooks/db/definitions/db_connect_app.rb for the "db_connect_app" definition.
+  db_connect_app ::File.join(project_root, "wp-config.php") do
+    template "wp-config.php.erb"
+    cookbook "app_php"
+    database db_name
+    owner node[:app][:user]
+    group node[:app][:group]
+    driver_type "php"
+    vars(
+      :auth_unique_keys => res.body
+    )
+  end
+end
+
+#########################################
+#########################################
+=begin
 # Setup PHP Database Connection
 action :setup_db_connection do
   project_root = new_resource.destination
@@ -125,7 +194,7 @@ action :setup_db_connection do
     driver_type "php"
   end
 end
-
+=end
 # Download/Update application repository
 action :code_update do
 
