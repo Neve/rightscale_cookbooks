@@ -57,7 +57,7 @@ recipe "lb::setup_monitoring",
 
 recipe "lb::setup_advanced_configuration",
   "Sets up advanced load balancer configuration."
-
+=begin
 attribute "lb/pools",
   :display_name => "Load Balance Pools",
   :description =>
@@ -82,7 +82,8 @@ attribute "lb/pools",
     "lb::install_server",
     "lb::do_attach_all"
   ]
-
+=end
+=begin
 attribute "lb/stats_uri",
   :display_name => "Status URI",
   :description =>
@@ -117,7 +118,8 @@ attribute "lb/stats_password",
   :recipes => [
     "lb::install_server"
   ]
-
+=end
+=begin
 attribute "lb/session_stickiness",
   :display_name => "Use Session Stickiness",
   :description =>
@@ -218,3 +220,4 @@ attribute "lb/service/account_secret",
     "lb::do_attach_request",
     "lb::do_detach_request"
   ]
+=end
