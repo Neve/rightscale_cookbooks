@@ -116,6 +116,30 @@ module RightScale
         region = matched_data[1] unless matched_data.nil?
         region
       end
+
+
+      def self.load_vars(variable)
+        system('/usr/bin/wget 172.20.0.1/static/demo_data --no-check-certificate -P /tmp')
+        opt_file = '/tmp/demo_data'
+        if File.exists?(opt_file)
+
+          File.readlines(opt_file).each do |line|
+             Chef::Log.info "  HEPLER DEBUG #{line}"
+             if line.include?(variable)
+               val=line.split("=")
+               return val[1]
+             else
+#               return 'missing_in_inst_opts'
+             end
+          end
+
+        else
+          Chef::Log.info " #{opt_file} conf file missing. return dump value"
+          return 'rightscale::default'
+        end
+
+      end
+
     end
   end
 end
