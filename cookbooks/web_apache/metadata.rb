@@ -53,7 +53,7 @@ attribute "web_apache",
   :description =>
     "Apache Web Server",
   :type => "hash"
-
+=begin
 attribute "web_apache/mpm",
   :display_name => "Multi-Processing Module",
   :description =>
@@ -162,3 +162,4 @@ attribute "web_apache/allow_override",
     "web_apache::setup_frontend",
     "web_apache::default"
   ]
+=end

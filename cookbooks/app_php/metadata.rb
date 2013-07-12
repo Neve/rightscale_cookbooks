@@ -20,7 +20,7 @@ recipe "app_php::setup_server_5_3",
 attribute "app_php",
   :display_name => "PHP Application Settings",
   :type => "hash"
-
+=begin
 attribute "app_php/modules_list",
   :display_name => "PHP module packages",
   :description =>
@@ -32,3 +32,4 @@ attribute "app_php/modules_list",
   :required => "optional",
   :type => "array",
   :recipes => ["app_php::setup_server_5_3"]
+=end

@@ -7,7 +7,7 @@
 # such as a RightScale Master Subscription Agreement.
 
 rightscale_marker
-
+node.default[:repo][:default][:provider] = "repo_git"
 log "  Setup all resources that have attributes in the node"
 node[:repo].each do |resource_name, entry|
   url = entry[:repository] || ""

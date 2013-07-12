@@ -91,7 +91,7 @@ recipe "app::handle_loadbalancers_allow",
 recipe "app::handle_loadbalancers_deny",
   "Runs remote recipe on app server from loadbalancer revoking access." +
   " DO NOT RUN."
-
+=begin
 attribute "app/port",
   :display_name => "Application Listen Port",
   :description =>
@@ -128,3 +128,4 @@ attribute "app/backend_ip_type",
   :recipes => ["app::install_server"],
   :required => "optional"
 
+=end

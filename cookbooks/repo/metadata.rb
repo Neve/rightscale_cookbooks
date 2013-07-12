@@ -19,7 +19,7 @@ depends "repo_rsync"
 recipe "repo::default",
   "Sets up repo resource and provider."
 
-
+=begin
 attribute "repo/default/provider",
   :display_name => "Repository Provider",
   :description =>
@@ -147,3 +147,4 @@ attribute "repo/default/prefix",
   :required => "optional",
   :recipes => ["repo::default"]
 
+=end

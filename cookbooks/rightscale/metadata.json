@@ -39,7 +39,8 @@
   },
   "recipes": {
     "rightscale::vars_db_master": "Setup vars for db master template.",
-    "rightscale::vars_lb_ha": "Setup vars for db master template.",
+    "rightscale::vars_lb_ha": "Setup vars for lb_haproxy master template.",
+    "rightscale::vars_app_wp": "Setup vars for app php wordpress master template.",
     "rightscale::default": "Installs the utilities that are required for RightScale support.",
     "rightscale::setup_monitoring": "Installs and configures RightScale dashboard monitoring features.",
     "rightscale::setup_ssh": "Installs the private ssh key.",

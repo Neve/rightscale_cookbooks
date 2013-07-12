@@ -16,7 +16,10 @@ recipe "rightscale::vars_db_master",
   "Setup vars for db master template."
 
 recipe "rightscale::vars_lb_ha",
-  "Setup vars for db master template."
+  "Setup vars for lb_haproxy master template."
+
+recipe "rightscale::vars_app_wp",
+  "Setup vars for app php wordpress master template."
 
 recipe "rightscale::default",
   "Installs the utilities that are required for RightScale support."

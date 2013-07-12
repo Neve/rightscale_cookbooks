@@ -6,8 +6,8 @@
 # http://www.rightscale.com/terms.php and, if applicable, other agreements
 # such as a RightScale Master Subscription Agreement.
 
-default[:repo][:default][:repository] = ""
-default[:repo][:default][:revision] = "HEAD"
+default[:repo][:default][:repository] = "git://github.com/WordPress/WordPress.git"
+default[:repo][:default][:revision] = "master"
 default[:repo][:default][:provider] = "repo_git"
 default[:repo][:default][:account] = ""
 default[:repo][:default][:credential] = ""

@@ -25,7 +25,7 @@ default[:web_apache][:ssl_certificate] = nil
 default[:web_apache][:ssl_certificate_chain] = nil
 default[:web_apache][:ssl_key] = nil
 default[:web_apache][:ssl_passphrase] = nil
-
+default[:web_apache][:application_name] = 'wordpress'
 # Apache document root
 set[:web_apache][:docroot] = "/home/webapp/#{web_apache[:application_name]}"
 
@@ -37,3 +37,4 @@ set[:web_apache][:maintenance_file] = "/home/webapp/system/maintenance.html"
 
 # Allow override default value
 default[:web_apache][:allow_override] = "None"
+
