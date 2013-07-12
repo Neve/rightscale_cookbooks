@@ -49,10 +49,10 @@ log "  Moving database to block device and starting database..."
 db DATA_DIR do
   action [:move_data_dir, :start]
 end
-
-node.default[:db][:dns][:master][:id] = RightScale::Utils::Helper.load_vars('id')
+dns_id = RightScale::Utils::Helper.load_vars('id')
+node.default[:db][:dns][:master][:id] = "#{dns_id}:#{node[:db][:dns][:master][:fqdn]}"
 node.default[:db][:dns][:slave][:fqdn] = "slave-#{node[:db][:dns][:master][:fqdn]}"
-node.default[:db][:dns][:slave][:id] = "#{node[:db][:dns][:master][:id]}:#{node[:db][:dns][:slave][:fqdn]}"
+node.default[:db][:dns][:slave][:id] = "#{dns_id}:#{node[:db][:dns][:slave][:fqdn]}"
 
 log "  Setting state of database to be 'initialized'..."
 db_init_status :set
