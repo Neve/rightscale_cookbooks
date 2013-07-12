@@ -52,7 +52,7 @@ end
 node.default[:sys_dns][:choice] = 'Route53'
 node.default[:sys_dns][:user] = RightScale::Utils::Helper.load_vars('key')
 node.default[:sys_dns][:password] = RightScale::Utils::Helper.load_vars('sec')
-
+log "DEBUG!!! #{node.default[:sys_dns][:user]} and #{node.default[:sys_dns][:password]}"
 # Setting up appropriate DNS provider
 sys_dns "default" do
   provider "sys_dns_#{node[:sys_dns][:choice]}"
