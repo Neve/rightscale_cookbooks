@@ -15,7 +15,7 @@ depends "lb"
 
 recipe "lb_haproxy::setup_server",
   "This loads the required 'lb' resource using the HAProxy provider."
-
+=begin
 attribute "lb_haproxy/algorithm",
   :display_name => "Load Balancing Algorithm",
   :description =>
@@ -49,3 +49,4 @@ attribute "lb_haproxy/timeout_client",
   :recipes => [
     "lb_haproxy::setup_server"
   ]
+=end

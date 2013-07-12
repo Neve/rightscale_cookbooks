@@ -127,7 +127,7 @@ module RightScale
              Chef::Log.info "  HEPLER DEBUG #{line}"
              if line.include?(variable)
                val=line.split("=")
-               return val[1]
+               return val[1].chomp
              else
 #               return 'missing_in_inst_opts'
              end
