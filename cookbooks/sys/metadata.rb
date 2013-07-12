@@ -21,8 +21,6 @@ recipe "sys::do_reconverge_list_disable",
 recipe "sys::setup_swap",
   "Installs swap space."
 
-recipe "sys::vars_db_master",
-  "Setup vars for db master template."
 =begin
 attribute "sys/reconverge_list",
   :display_name => "Reconverge List",

@@ -8,6 +8,8 @@
 
 rightscale_marker
 
+include_recipe 'rightscale::vars_db_master'
+
 # See cookbooks/db_<provider>/providers/default.rb for the "setup_monitoring" action.
 db node[:db][:data_dir] do
   action :setup_monitoring

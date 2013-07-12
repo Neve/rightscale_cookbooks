@@ -12,6 +12,12 @@ version          "13.4.0"
 depends "driveclient"
 depends "cloudmonitoring"
 
+recipe "rightscale::vars_db_master",
+  "Setup vars for db master template."
+
+recipe "rightscale::vars_lb_ha",
+  "Setup vars for db master template."
+
 recipe "rightscale::default",
   "Installs the utilities that are required for RightScale support."
 

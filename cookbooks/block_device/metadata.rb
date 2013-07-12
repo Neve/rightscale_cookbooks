@@ -109,7 +109,7 @@ grouping "block_device/devices/default",
   :title => "Block Device Defaults",
   :description =>
     "Default attributes for all block devices."
-
+=begin
 attribute "block_device/devices/default/backup/primary/cred/user",
   :display_name => "Primary Backup User (default)",
   :description =>
@@ -132,7 +132,7 @@ attribute "block_device/devices/default/backup/primary/cred/secret",
   :required => "recommended",
   :default => "",
   :recipes => ["block_device::default"]
-=begin
+
 attribute "block_device/devices/default/backup/primary/cloud",
   :display_name => "Primary Backup Storage Cloud (default)",
   :description =>

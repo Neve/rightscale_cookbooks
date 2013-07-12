@@ -188,7 +188,7 @@ attribute "db/dns/master/fqdn",
     " Example: db-master.example.com",
   :required => "required",
   :recipes => ["db::default", "db::install_server"]
-
+=begin
 attribute "db/dns/master/id",
   :display_name => "Database Master DNS Record ID",
   :description =>
@@ -206,7 +206,7 @@ attribute "db/dns/master/id",
     "db::do_init_and_become_master",
     "db::do_promote_to_master"
   ]
-=begin
+
 attribute "db/dns/slave/fqdn",
   :display_name => "Database Slave FQDN",
   :description =>

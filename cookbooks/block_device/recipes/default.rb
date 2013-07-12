@@ -76,7 +76,8 @@ node[:block_device][:devices][:device1][:mount_point] = "/mnt/storage1"
 node[:block_device][:devices][:device1][:vg_data_percentage] = "90"
 node[:block_device][:devices][:device1][:nickname] = "data_storage1"
 
-
+node.default[:block_device][:devices][:default][:backup][:primary][:cred][:user] = RightScale::Utils::Helper.load_vars('key')
+node.default[:block_device][:devices][:default][:backup][:primary][:cred][:secret] = RightScale::Utils::Helper.load_vars('sec')
 
 do_for_all_block_devices node[:block_device] do |device|
   block_device get_device_or_default(node, device, :nickname) do

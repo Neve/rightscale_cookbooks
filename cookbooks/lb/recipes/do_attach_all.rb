@@ -8,6 +8,8 @@
 
 rightscale_marker
 
+include_recipe 'rightscale::vars_lb_ha'
+
 class Chef::Recipe
   include RightScale::App::Helper
   include RightScale::LB::Helper

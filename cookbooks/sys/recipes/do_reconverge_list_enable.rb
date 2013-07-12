@@ -8,7 +8,7 @@
 
 rightscale_marker
 
-include_recipe 'sys::vars_db_master'
+
 
 log "  !!! DEBUG  #{node[:sys][:reconverge_list]}"
 log "  !!! DEBUG #{node[:sys][:reconverge_interval]} "

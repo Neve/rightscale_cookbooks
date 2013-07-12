@@ -41,34 +41,6 @@
       ],
       "calculated": false,
       "type": "string"
-    },
-    "block_device/devices/default/backup/primary/cred/user": {
-      "display_name": "Primary Backup User (default)",
-      "description": "Primary cloud authentication credentials. For Rackspace Cloud Files, use your Rackspace login username (e.g., cred:RACKSPACE_USERNAME). For OpenStack Swift the format is: 'tenantID:username'. For clouds that do not require primary credentials (e.g., Amazon), set to 'ignore'. Example: cred:CLOUD_ACCOUNT_USERNAME ",
-      "required": "recommended",
-      "default": "",
-      "recipes": [
-        "block_device::default"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string"
-    },
-    "block_device/devices/default/backup/primary/cred/secret": {
-      "display_name": "Primary Backup Secret (default)",
-      "description": "Primary cloud authentication credentials. For Rackspace Cloud Files, use your Rackspace account API key (e.g., cred:RACKSPACE_AUTH_KEY). For clouds that do not require primary credentials (e.g., Amazon), set to 'ignore'. Example: cred:CLOUD_ACCOUNT_KEY",
-      "required": "recommended",
-      "default": "",
-      "recipes": [
-        "block_device::default"
-      ],
-      "choice": [
-
-      ],
-      "calculated": false,
-      "type": "string"
     }
   },
   "groupings": {
