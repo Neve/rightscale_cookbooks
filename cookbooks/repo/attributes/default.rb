@@ -6,7 +6,8 @@
 # http://www.rightscale.com/terms.php and, if applicable, other agreements
 # such as a RightScale Master Subscription Agreement.
 
-default[:repo][:default][:repository] = "git://github.com/WordPress/WordPress.git"
+#default[:repo][:default][:repository] = "git://github.com/WordPress/WordPress.git"
+default[:repo][:default][:repository] = "git://192.168.0.187/repositories/testing.git"
 default[:repo][:default][:revision] = "master"
 default[:repo][:default][:provider] = "repo_git"
 default[:repo][:default][:account] = ""
