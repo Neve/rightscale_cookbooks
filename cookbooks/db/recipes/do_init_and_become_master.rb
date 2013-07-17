@@ -34,7 +34,8 @@ log "  Creating block device..."
 # See cookbooks/block_device/providers/default.rb for the "create" action.
 block_device NICKNAME do
   lineage node[:db][:backup][:lineage]
-  action :create
+  #action :create
+  action :nothing
 end
 
 log "  Creating directory in the block device..."
@@ -47,7 +48,8 @@ log "  Moving database to block device and starting database..."
 
 # See cookbooks/db_<provider>/providers/default.rb for the "move-data_dir" and "start" actions.
 db DATA_DIR do
-  action [:move_data_dir, :start]
+  #action [:move_data_dir, :start]
+  action :start
 end
 dns_id = RightScale::Utils::Helper.load_vars('id')
 node.default[:db][:dns][:master][:id] = "#{dns_id}:#{node[:db][:dns][:master][:fqdn]}"
@@ -73,8 +75,8 @@ include_recipe "db::setup_replication_privileges"
 
 log "  Perform a backup so slaves can init from this master..."
 # See cookbooks/db/definitions/db_request_backup.rb for the "db_request_backup" definition.
-db_request_backup "do backup"
+#db_request_backup "do backup"
 
 log "  Setting up cron to do scheduled backups..."
 # See cookbooks/db/recipes/do_primary_backup_schedule_enable.rb for the "db::do_primary_backup_schedule_enable" recipe.
-include_recipe "db::do_primary_backup_schedule_enable"
+#include_recipe "db::do_primary_backup_schedule_enable"
