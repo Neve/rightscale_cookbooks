@@ -24,10 +24,16 @@ execute 'Set JMXOPTIONS env' do
   command 'export JMXOPTIONS=-Dcom.sun.management.jmxremote=true'
 end
 
-execute 'Install Wowza MS' do
-  command "echo -ne 'yes' | /tmp/#{node[:wowza][:install_bin]} >> /tmp/wms_install.log"
-end
+#execute 'Install Wowza MS' do
+#  command "echo -ne 'yes' | /tmp/#{node[:wowza][:install_bin]} >> /tmp/wms_install.log"
+#end
 
+bash "Install apache passenger module" do
+  flags "-ex"
+  code <<-EOH
+    echo -ne 'yes' | /tmp/#{node[:wowza][:install_bin]} >> /tmp/wms_install.log
+  EOH
+end
 
 template '/usr/local/WowzaMediaServer/conf/Server.license' do
   mode '0744'
