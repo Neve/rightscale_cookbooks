@@ -10,6 +10,7 @@ version          "13.4.0"
 # supports "ubuntu", "~> 10.04", "~> 12.04"
 
 depends "rightscale"
+depends "sys_firewall"
 
 recipe 'wowza::default',
   'Default recipe for Wowza demo cookbook.'

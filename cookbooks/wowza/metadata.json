@@ -8,7 +8,8 @@
   "platforms": {
   },
   "dependencies": {
-    "rightscale": ">= 0.0.0"
+    "rightscale": ">= 0.0.0",
+    "sys_firewall": ">= 0.0.0"
   },
   "recommendations": {
   },
@@ -25,7 +26,8 @@
   "groupings": {
   },
   "recipes": {
-    "wowza::default": "Default recipe for Wowza demo cookbook."
+    "wowza::default": "Default recipe for Wowza demo cookbook.",
+    "wowza::install_server": "Installs Wowza Media Server."
   },
   "version": "13.4.0"
 }
