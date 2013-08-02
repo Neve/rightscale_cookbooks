@@ -11,5 +11,8 @@ version          "13.4.0"
 
 depends "rightscale"
 
-recipe "wowza::default",
-  "Default recipe for Wowza demo cookbook."
+recipe 'wowza::default',
+  'Default recipe for Wowza demo cookbook.'
+
+recipe 'wowza::install_server',
+  'Installs Wowza Media Server.'
