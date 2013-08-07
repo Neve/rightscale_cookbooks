@@ -7,7 +7,7 @@
 # such as a RightScale Master Subscription Agreement.
 
 #default[:repo][:default][:repository] = "git://github.com/WordPress/WordPress.git"
-default[:repo][:default][:repository] = "git://192.168.0.187/repositories/testing.git"
+default[:repo][:default][:repository] = "http://gitlab.altoros.com:8880/a_751_rsvm_wordpress_demo.git"
 default[:repo][:default][:revision] = "master"
 default[:repo][:default][:provider] = "repo_git"
 default[:repo][:default][:account] = ""
