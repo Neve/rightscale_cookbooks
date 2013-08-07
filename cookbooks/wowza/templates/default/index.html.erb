@@ -1,0 +1,17 @@
+<html>
+<body>
+<h1>Demo stream</h1>
+<script type="text/javascript" src="/jwplayer/jwplayer.js"></script>
+<p>Stream: rtmp://<%=@host%>:1935/vod/mp4:sample.mp4 </p>
+<p></p>
+<div id="myElement">Loading the player...</div>
+
+<script type="text/javascript">
+  jwplayer("myElement").setup({
+    file: "rtmp://<%=@host%>:1935/vod/mp4:sample.mp4",
+    image: "/content/wowzalogo.png"
+  });
+</script>
+
+</body>
+</html>

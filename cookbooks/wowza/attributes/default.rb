@@ -21,3 +21,5 @@ default[:wowza][:install_bin] = 'WowzaMediaServer-3.6.2.deb.bin'
 # TCP 8086 Administration
 default[:wowza][:rule][:ports] = ['1935','8084','8085','8086',]
 default[:wowza][:ip] = node[:cloud][:private_ips][0]
+
+default[:wowza][:app_path] = '/usr/local/WowzaMediaServer'

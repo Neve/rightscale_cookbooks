@@ -1,0 +1,45 @@
+<html>
+<body>
+<h1>Transcoder AddOn stream Demo</h1>
+<script type="text/javascript" src="/jwplayer/jwplayer.js"></script>
+
+
+<p>Stream: rtmp://<%=@host%>:1935/live/mystream.stream_720p </p>
+<p></p>
+<div id="myElement_720">Loading the player...</div>
+
+
+<script type="text/javascript">
+  jwplayer("myElement_720").setup({
+    file: "rtmp://<%=@host%>:1935/live/mystream.stream_720p",
+    image: "/content/wowzalogo.png"
+  });
+</script>
+
+
+<p>Stream: rtmp://<%=@host%>:1935/live/mystream.stream_360p </p>
+<p></p>
+<div id="myElement_360">Loading the player...</div>
+
+
+<script type="text/javascript">
+  jwplayer("myElement_360").setup({
+    file: "rtmp://<%=@host%>:1935/live/mystream.stream_360p",
+    image: "/content/wowzalogo.png"
+  });
+</script>
+
+<p>Stream: rtmp://<%=@host%>:1935/live/mystream.stream_160p </p>
+<p></p>
+<div id="myElement_160">Loading the player...</div>
+
+<script type="text/javascript">
+  jwplayer("myElement_160").setup({
+    file: "rtmp://<%=@host%>:1935/live/mystream.stream_160p",
+    image: "/content/wowzalogo.png"
+  });
+</script>
+
+
+</body>
+</html>

@@ -17,3 +17,10 @@ recipe 'wowza::default',
 
 recipe 'wowza::install_server',
   'Installs Wowza Media Server.'
+
+recipe 'wowza::setup_flash_frontend',
+  'Installs  Apache, JW player and configures WMC embedded flash frontend.'
+
+recipe 'wowza::setup_transcoder_frontend',
+  'Configures WMC transcoder addon and app, adds embedded flash frontend for transcoder.'
+
